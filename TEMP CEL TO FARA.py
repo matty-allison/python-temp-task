@@ -4,7 +4,6 @@ from tkinter import messagebox
 def about():
     toplevel = Toplevel()
     toplevel.geometry("300x200")
-    toplevel.title("About")
     toplevel.resizable(width=FALSE, height=False)
     label1 = Label(toplevel, font=("Maiandra GD", 14), text="\n\n           Temperature Converter")
     label2 = Label(toplevel, text="")
@@ -18,7 +17,7 @@ def cal():
         fahrenheit = (inputCelsius * 1.8) + 32
         TextBox2.insert(INSERT,fahrenheit)
     except:
-        messagebox.showerror("Error","Please enter integer/float value")
+        messagebox.showerror("Error","Please enter a Number Value")
 
 def calF():
     try:
@@ -26,7 +25,7 @@ def calF():
         Celsius = (inputFah - 32) * 5/9
         TextBox4.insert(INSERT,Celsius)
     except:
-        messagebox.showerror("Error","Please enter integer/float value")
+        messagebox.showerror("Error","Please enter a Number Value")
 
 def clr():
     TextBox1.delete('1.0', END)
@@ -34,16 +33,12 @@ def clr():
     TextBox3.delete('1.0', END)
     TextBox4.delete('1.0', END)
 
+
 root = Tk()
 root.title("Temperature Converter")
-root.geometry("400x500")
+root.geometry("450x600")
 root.resizable(width=FALSE, height=False)
-menubar = Menu(root)
-helpmenu = Menu(menubar, tearoff=0)
-helpmenu.add_command(label="About", command=about)
-menubar.add_cascade(label="Help", menu=helpmenu)
 
-root.config(menu=menubar)
 
 label1 = Label(root, text="\nEnter Temperature in Celsius")
 label1.grid(row=3, column=3)
@@ -57,8 +52,6 @@ label2.grid(row=6, column=3)
 TextBox2 = Text(root, height=2, width=7,font=(30))
 TextBox2.grid(row=7, column=3, sticky=N)
 
-label3= Label(root,text="-------------------------------------")
-label3.grid(row=8,column=3)
 
 label1 = Label(root, text="\nEnter Temperature in Fahrenheit")
 label1.grid(row=9, column=3)
